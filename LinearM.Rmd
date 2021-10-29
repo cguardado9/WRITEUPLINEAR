@@ -60,6 +60,9 @@ newData=data.frame(GRIP=94,ARM=88)
 predict.lm(model.1,newData,interval = "prediction")
 ```
 Fit is the predicted ARM score when you have a grip score of 94 and the ARM strength of 88.
+ Lwr and Upr are the 95% confidence intervals for prediction when GRIP is 94 and ARM is 88.
+ 
+ 
 
 
 # SIMS~GRIP REGRESSION  
@@ -98,8 +101,12 @@ newData=data.frame(GRIP=94,ARM=88)
 predict.lm(model.1,newData,interval = "prediction")
 ```
 
+Fit is the predicted SIM score when you have a GRIP strength of 94.
+lwr and upr are 95% confidence intervals for predicted SIMS score when the GRIP score  is 94 .
 
-
+Comparing both models1 and 2 it shows that Model1 (SIM~ARM) has a slight smaller residual standred error score of 1.226 unlike model 2(SIMS ~GRIP) score slightly higer of 1.295.Model 1has a higher R squared of 0.467 while model 2 is lower 0.4053
+ 
+ Model 1 appears to be a slightly better model because it has a lower residual and higher R square score.
 
 
 # SIMS~ARM+GRIP  
