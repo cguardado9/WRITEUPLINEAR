@@ -37,7 +37,7 @@ summary.lm(model.1)
 basicNN +geom_point()+ geom_smooth(method=lm)
 ``` 
 
-The greater the ARM force ,the greater the SIMS score increase meaning the correlate together which the scatter plot looks like a  linear  is trending up which is a sign a for a postive correlated data.
+The greater the ARM force ,the greater the SIMS score increase meaning the correlate together which the scatter plot looks like a  linear  is trending up which is a sign a for a postive correlated data.The shaded part is the uncertainity of the blue line .
 
 
 
@@ -59,7 +59,7 @@ SIMS= -4.095160 + 0.054563  * ARM
 newData=data.frame(GRIP=94,ARM=88)
 predict.lm(model.1,newData,interval = "prediction")
 ```
-
+Fit is the predicted ARM score when you have a grip score of 94 and the ARM strength of 88.
 
 
 # SIMS~GRIP REGRESSION  
@@ -77,14 +77,21 @@ The greater the GRIP force ,the greater the SIMS score increase meaning that the
 cor(SIMS~GRIP,data=data)
 ```
 
+0.6398 is a positive correlation because the number is psotive not negative or above one  between SIMS score and GRIP FORCE .
 
-
-
+```{r}
+basicNN +geom_point()+ geom_smooth(method=lm)
+``` 
 
 ```{r}
 model.1 <- lm(SIMS~GRIP,data=data)
 summary.lm(model.1)
 ```
+
+The equations is SIMS is lm(formula = SIMS ~ GRIP, data = data);
+SIMS= -4.809675 +  0.045463 * GRIP
+
+
 
 ```{r}
 newData=data.frame(GRIP=94,ARM=88)
@@ -93,8 +100,29 @@ predict.lm(model.1,newData,interval = "prediction")
 
 
 
-# SIMS~ARM+GRIP  
 
+
+# SIMS~ARM+GRIP  
+```{r}
+plot(SIMS~ARM+GRIP,data=data)
+```
+
+
+
+```{r}
+model.1 <- lm(SIMS~ARM+GRIP,data=data)
+summary.lm(model.1)
+```
+
+```{r}
+cor(SIMS~ARM+GRIP,data=data)
+```
+
+
+```{r}
+model.1 <- lm(SIMS~ARM+GRIP,data=data)
+summary.lm(model.1)
+```
 
 
 # MODEL COMPARISONS  
