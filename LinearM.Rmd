@@ -110,26 +110,29 @@ Comparing both models1 and 2 it shows that Model1 (SIM~ARM) has a slight smaller
 
 
 # SIMS~ARM+GRIP  
-```{r}
-plot(SIMS~ARM+GRIP,data=data)
-```
-
 
 
 ```{r}
-model.1 <- lm(SIMS~ARM+GRIP,data=data)
-summary.lm(model.1)
-```
+model.3 <- lm(SIMS~ARM + GRIP,data=data)
+summary.lm(model.3)
+``` 
 
-```{r}
-cor(SIMS~ARM+GRIP,data=data)
-```
+Model 3 appears tobe the better model because of the R squared score than both model1 and 2  and has a lower resdual standard error.
 
 
 ```{r}
-model.1 <- lm(SIMS~ARM+GRIP,data=data)
-summary.lm(model.1)
-```
+anova(model.2,model.3)
+``` 
+
+
+
+
+
+
+
+
+
+
 
 
 # MODEL COMPARISONS  
