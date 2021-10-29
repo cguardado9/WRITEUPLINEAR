@@ -17,11 +17,79 @@ require(tigerstats)
  Form  THE three regression models; Model1 is SIMS~ARM, Model2 is SIMS~GRIP, and Model3 is SIMS~ARM+GRIP. For each model find a 95% prediction interval of SIMS given a value of 94  for GRIP and 88 for ARM. Compare Model1 with Model3 using anova. Write it up in a markdown document, push the project up to your github account and submit it back to canvas as link. 
  
  
-# SIMS~ARM REGRESSION . 
+# SIMS~ARM REGRESSION 
+
+```{r}
+plot(SIMS~ARM,data=data)
+```
+
+```{r}
+basicNN <- ggplot(data,aes(y=SIMS,x=ARM))
+```
+
+
+```{r}
+model.1 <- lm(SIMS~ARM,data=data)
+summary.lm(model.1)
+```
+
+```{r}
+basicNN +geom_point()+ geom_smooth(method=lm)
+``` 
+
+The greater the ARM force ,the greater the SIMS score increase meaning the correlate together which the scatter plot looks like a  linear  is trending up which is a sign a for a postive correlated data.
+
+
+
+```{r}
+cor(SIMS~ARM,data=data)
+```
+
+0.686 is a positive correlation between SIMS score and ARM FORCE Correlations is the measure of the linear associates.
+
+```{r}
+model.1 <- lm(SIMS~ARM,data=data)
+summary.lm(model.1)
+```
+
+The equations is SIMS is lm(formula = SIMS ~ ARM, data = data);
+SIMS= -4.095160 + 0.054563  * ARM 
+
+```{r}
+newData=data.frame(GRIP=94,ARM=88)
+predict.lm(model.1,newData,interval = "prediction")
+```
 
 
 
 # SIMS~GRIP REGRESSION  
+
+```{r}
+plot(SIMS~GRIP,data=data)
+```
+
+The greater the GRIP force ,the greater the SIMS score increase meaning that they  correlate together which the scatter plot looks like a postive slope  which is trending up which is a sign a for a postive correlation.
+
+
+
+
+```{r}
+cor(SIMS~GRIP,data=data)
+```
+
+
+
+
+
+```{r}
+model.1 <- lm(SIMS~GRIP,data=data)
+summary.lm(model.1)
+```
+
+```{r}
+newData=data.frame(GRIP=94,ARM=88)
+predict.lm(model.1,newData,interval = "prediction")
+```
 
 
 
