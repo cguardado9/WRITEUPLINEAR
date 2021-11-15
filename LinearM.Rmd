@@ -14,7 +14,7 @@ require(tigerstats)
 
 # Introduction
 
- Form  THE three regression models; Model1 is SIMS~ARM, Model2 is SIMS~GRIP, and Model3 is SIMS~ARM+GRIP. For each model find a 95% prediction interval of SIMS given a value of 94  for GRIP and 88 for ARM. Compare Model1 with Model3 using anova. Write it up in a markdown document, push the project up to your github account and submit it back to canvas as link. 
+ Form  THE three regression models; Model1 is SIMS~ARM, Model2 is SIMS~GRIP, and Model3 is SIMS~ARM+GRIP. For each model find a 95% prediction interval of SIMS given a value of 94  for GRIP and 88 for ARM. Compare Model1 with Model3 using anova. Write it up in a markdown document, push the project up to your   github account and submit it back to canvas as link. 
  
  
 # SIMS~ARM REGRESSION 
@@ -117,8 +117,23 @@ model.3 <- lm(SIMS~ARM + GRIP,data=data)
 summary.lm(model.3)
 ``` 
 
+```{r}
+cor(SIMS~ARM+GRIP,data=data)
+```
+
+##prediction
+```{r}
+newData=data.frame(GRIP=94,ARM=88)
+predict.lm(model.3,newData,interval = "prediction")
+```
+
+Fit is the predicted SIMS score when the GRIP sterngth is 94 and ARM strenth 88.
+lwr and upr are the 95% confidnce interval for the preidcted SIMS Score when GRIP is 94
+
+
+
 ## inferential Test
-The anova test is the infernetial to compare the models.  
+The anova test is the inferential to compare the models.  
 
 $H_0$ There is no difference between how each fit the data models between (model2,model3).  
 $H-A$ There is a difference between how they each fit the data between models 1&2.  
@@ -132,13 +147,8 @@ Model 3 appears to be the better model because of the R squared score than both 
   
 
 
+  
 
-
-
-
-
-
-# MODEL COMPARISONS  
 
 
 
