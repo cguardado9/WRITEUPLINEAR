@@ -147,8 +147,6 @@ Model 3 appears to be the better model because of the R squared score than both 
   
 
 
-  
-
 
 
 
