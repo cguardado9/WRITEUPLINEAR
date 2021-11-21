@@ -1,6 +1,6 @@
 ---
 title: "LinearM"
-author: "CainaGuardado"
+author: "CainaGuardado "
 date: "10/29/2021"
 output: html_document
 ---
